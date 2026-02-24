@@ -17,7 +17,7 @@ export const setAuthToken = (token) => {
     }
 }
 
-const getAuthToken = () => {
+export const getAuthToken = () => {
     return localStorage.getItem(AUTH_TOKEN);
 }
 
@@ -25,13 +25,15 @@ const refreshToken = () => {
     return "";
 }
 
-apiClient.interceptors.request.use(function (config) {
-    const token = getAuthToken();
-    if (token) {
-        config.headers['Authorization'] = `Bearer ${token}`;
+apiClient.interceptors.request.use(
+    function (config) {
+        const token = getAuthToken();
+        if (token) {
+            config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
     }
-    return config;
-});
+);
 
 apiClient.interceptors.response.use(
     response => response,
@@ -42,5 +44,5 @@ apiClient.interceptors.response.use(
         else {
             console.log(error.toJSON());
         }
-
-    });
+    }
+);

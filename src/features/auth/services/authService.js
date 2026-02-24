@@ -10,5 +10,6 @@ export const registerUser = async (formData) => {
 
 export const loginUser = async (formData) => {
     let response = await apiClient.post(LOGIN_URL, formData);
-    setAuthToken(response.data.accessToken);
+    const AUTH_TOKEN = response.data.accessToken;
+    setAuthToken(AUTH_TOKEN);
 }
