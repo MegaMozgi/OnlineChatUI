@@ -1,9 +1,9 @@
-import AuthButton from './Button/AuthButton';
-import Input from './Input/Input.jsx';
-import { registerUser } from '../services/authService.js'
+import AuthButton from '../Button/AuthButton';
+import Input from '../Input/Input.jsx';
+import { registerUser } from '../../services/authService.js'
 import { Link } from 'react-router-dom';
 import { Form, Formik } from 'formik';
-import { registerInitialValues, registerValidationSchema } from './helper.js';
+import { registerInitialValues, registerValidationSchema } from '../helper.js';
 
 function RegisterForm() {
     const handleSubmit = async (values) => {

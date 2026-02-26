@@ -1,5 +1,5 @@
 import AuthLayout from "../../features/auth/components/AuthLayout";
-import LoginForm from "../../features/auth/components/LoginForm"
+import LoginForm from "../../features/auth/components/Form/LoginForm"
 
 function LoginPage(){
     return(

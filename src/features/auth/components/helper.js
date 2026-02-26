@@ -7,7 +7,6 @@ export const loginInitialValues = {
     password: ''
 }
 
-
 //Registration schema
 export const  registerValidationSchema = Yup.object({
     password: Yup.string()

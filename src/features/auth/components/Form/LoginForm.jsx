@@ -1,9 +1,9 @@
-import AuthButton from './Button/AuthButton.jsx';
-import Input from './Input/Input.jsx';
-import { loginUser } from '../services/authService.js'
+import AuthButton from '../Button/AuthButton.jsx';
+import Input from '../Input/Input.jsx';
+import { loginUser } from '../../services/authService.js'
 import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
-import { loginInitialValues } from './helper.js';
+import { loginInitialValues } from '../helper.js';
 
 
 function LoginForm() {
@@ -17,7 +17,7 @@ function LoginForm() {
             onSubmit={handleSubmit}>
             <Form className="bg-white py-16 px-8 shadow-2xs rounded-lg border border-[#ECF0F5] w-full max-w-96">
                 <div className="flex flex-col gap-4">
-                    <AuthButton style={"bg-white border border-[#ECF0F5] text-[#5D6778] "}>Sign up with Google</AuthButton>
+                    <AuthButton style={"bg-white border border-[#ECF0F5] text-[#5D6778]"}>Sign up with Google</AuthButton>
                 </div>
 
                 <div className='flex flex-row my-8 w-full items-center mx-auto'>
