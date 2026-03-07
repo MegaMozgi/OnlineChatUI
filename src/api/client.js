@@ -1,9 +1,7 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "./endpoints";
 
 let AUTH_TOKEN = "AuthToken";
-var navigate = useNavigate();
 
 export const apiClient = axios.create({
     baseURL: BASE_URL,
@@ -41,7 +39,7 @@ apiClient.interceptors.response.use(
     response => response,
     async (error) => {
         if (error.response.status === 401) {
-            navigate("/login");
+            window.location.href = "/login";
         }
         else {
             console.log(error.toJSON());
