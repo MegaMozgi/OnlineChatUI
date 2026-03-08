@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-main-page-light: #FAFBFF;
+  --color-header-light: #FFFFFF;
+  --color-primary-light-text: #0C1024;
+  --color-secondary-light-text: #27364B;
+  --color-nav-light: #4B5669;
+}
+
 :root {
   line-height: 1.5;
   font-weight: 400;
@@ -14,7 +22,6 @@
 
 body {
   margin: 0;
-
   background-color: var(--background-color);
 }
 
