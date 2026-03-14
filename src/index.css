@@ -6,6 +6,9 @@
   --color-primary-light-text: #0C1024;
   --color-secondary-light-text: #27364B;
   --color-nav-light: #4B5669;
+  --color-element-border-light: #ECF0F5;
+  --color-active-element-light: #F1F4F9;
+  --color-user-message-light: #6174D9;
 }
 
 :root {

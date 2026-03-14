@@ -8,15 +8,15 @@ const SendIcon = ({ className }) => (
 
         <path d="M18.3333 1.66667L9.16663 10.8333"
             stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round" />
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round" />
 
         <path d="M18.3333 1.66667L12.5 18.3333L9.16663 10.8333L1.66663 7.5L18.3333 1.66667Z"
             stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round" />
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round" />
     </svg>
 );
 

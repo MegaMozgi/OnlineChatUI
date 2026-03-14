@@ -1,17 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import img from '../../assets/profile/Cover.png'
 import SendIcon from '../../assets/SendIcon';
-
-// className="text-nav-light"
+import UserIcon from '../../assets/UserIcon';
 
 const navItems = [
-    { name: "Messages", path: "/messages", icon: <SendIcon /> },
+    { name: "Profile", path: "/profile", icon: <UserIcon /> },
+    { name: "Messages", path: "/direct", icon: <SendIcon /> },
 ]
 
 const Sidebar = () => {
     return (
         <div>
-            <aside className="flex flex-col bg-header-light mt-12 ml-23 mr-8 rounded-lg">
+            <aside className="flex flex-col bg-header-light mt-12 ml-23 mr-8 rounded-lg border border-element-border-light">
                 <img src={img} className='rounded-t-lg' />
 
                 <div className='flex flex-col mt-13 ml-8'>

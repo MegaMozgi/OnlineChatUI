@@ -1,7 +1,7 @@
-import {REGISTER_URL} from '../../../api/endpoints'
-import {LOGIN_URL} from '../../../api/endpoints'
-import {apiClient} from '../../../api/client'
-import {setAuthToken} from '../../../api/client'
+import {REGISTER_URL} from '../../../shared/api/endpoints'
+import {LOGIN_URL} from '../../../shared/api/endpoints'
+import {apiClient} from '../../../shared/api/client'
+import {setAuthToken} from '../../../shared/api/client'
 
 export const registerUser = async (formData) => {
     let response = await apiClient.post(REGISTER_URL, formData);
