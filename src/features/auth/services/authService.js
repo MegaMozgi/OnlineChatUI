@@ -12,4 +12,5 @@ export const loginUser = async (formData) => {
     let response = await apiClient.post(LOGIN_URL, formData);
     const AUTH_TOKEN = response.data.accessToken;
     setAuthToken(AUTH_TOKEN);
+    window.location.href = '/';
 }

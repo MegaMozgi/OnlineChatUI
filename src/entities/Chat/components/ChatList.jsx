@@ -10,7 +10,7 @@ const ChatList = ({ activeChat, setActveChat }) => {
             {
                 chats.map((chat) => (
                     <ChatItem key={chat.chatId} chat={chat}
-                        isActive={activeChat === chat.chatId} 
+                        isActive={activeChat === chat.chatId}
                         onClick={() => setActveChat(chat.chatId)} />
                 ))
             }
