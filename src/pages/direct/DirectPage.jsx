@@ -1,10 +1,10 @@
 import MainLayout from '../../layouts/MainLayout'
-import Direct from '../../widgets/Direct/Direct';
+import DirectWidget from '../../widgets/Direct/DirectWidget';
 
 const DirectPage = () => {
     return(
         <MainLayout>
-            <Direct />
+            <DirectWidget />
         </MainLayout>
     )
 }

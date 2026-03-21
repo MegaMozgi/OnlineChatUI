@@ -1,11 +1,9 @@
 import { useState } from "react";
 import SendIcon from "../../../assets/SendIcon"
-import useSendMessage from "../hooks/useSendMessage";
 
-const SendMessage = () => {
+const SendMessage = ({send}) => {
     const [content, setContent] = useState('');
     const [isButtonVisible, setIsButtonVisible] = useState(false);
-    const send = useSendMessage();
 
     const onChange = (c) => {
         var text = c.target.value;
@@ -18,20 +16,20 @@ const SendMessage = () => {
         const receiverId = element.dataset.receiverid;
         const chatId = element.dataset.id;
 
-        const newMessage ={
+        const newMessage = {
             receiverId: receiverId,
             chatId: chatId,
             content: content
         }
 
-        const result = await send(newMessage);
-        console.log(result);
+        await send(newMessage);
+        setContent('');
     }
 
     return (
         <div className="flex relative px-12 mt-auto mb-8">
             <input type="text" placeholder="Message ..." className="w-full rounded-lg py-2.5 pl-6 border
-                 border-element-border-light outline-none" onChange={onChange} />
+                 border-element-border-light outline-none overflow-auto wrap-break-word" onChange={onChange} value={content}/>
             <button className={`absolute my-3 right-16 cursor-pointer ${isButtonVisible ? 'block' : 'hidden'}`} onClick={handleSend}>
                 <SendIcon />
             </button>
