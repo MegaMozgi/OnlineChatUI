@@ -8,3 +8,4 @@ export const LOGIN_URL = 'auth/login';
 export const GET_CHATS_URL = 'chats/get-chats-by-user'
 export const GET_CHAT_MESSAGES = 'message/get-paginated-messages'
 export const SEND_MESSAGE_TO_PRIVATE = "message/send-message"
+export const SIGNALR_CHAT_URL = "chatHub"
