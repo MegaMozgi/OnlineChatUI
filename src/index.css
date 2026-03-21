@@ -12,6 +12,22 @@
   --color-new-message-light: #4C68D5;
 }
 
+@layer utilities{
+  .scrollbar::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background-color: transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #c4c4c2;
+    border-radius: 100vh;
+  }
+}
+
 :root {
   line-height: 1.5;
   font-weight: 400;

@@ -3,7 +3,7 @@ import { useChats } from "../hooks/useChats";
 import ChatItem from "./ChatItem";
 
 const ChatList = ({ activeChat, setActveChat }) => {
-    const chats = useChats();
+    const { chats, isLoading } = useChats();
 
     return (
         <div className="pt-8 border-t border-element-border-light">
