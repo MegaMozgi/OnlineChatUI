@@ -24,6 +24,7 @@ const SendMessage = ({send}) => {
 
         await send(newMessage);
         setContent('');
+        setIsButtonVisible(false);
     }
 
     return (
