@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { useMessage } from "./hooks/useMessage";
+import { useChats } from "./hooks/useChats";
+import { useAutoScroll } from "../../shared/hooks/useScroll";
+import { handleScrollToTop } from "../../shared/utils/Direct/scrollToTopHandler";
 import ChatList from "../../entities/Chat/components/ChatList";
 import MessageList from "../../entities/Message/components/MessageList";
 import SendMessage from "../../features/SendMessage/components/SendMessage";
-import Inbox from "../../assets/Inbox"
-import useScroll from "../../shared/hooks/useScroll";
+import Inbox from "../../assets/Inbox";
+import Write from "../../assets/direct/Write";
+import Spinner from "../../assets/Spinner"
 
 const DirectWidget = () => {
     const [activeChat, setActiveChat] = useState();
+    const { chats, isLoading } = useChats();
     const { messages, send } = useMessage(activeChat);
-    const scrollRef = useScroll(messages);
+    const autoScrollRef = useAutoScroll(messages);
 
     return (
         <div className="flex mt-12 mr-23 bg-header-light rounded-lg border border-element-border-light h-145">
@@ -17,22 +22,29 @@ const DirectWidget = () => {
                 <div className="flex my-6 mx-8">
                     <h5 className="text-primary-light-text font-medium">Messages</h5>
                 </div>
-                <ChatList setActveChat={setActiveChat} activeChat={activeChat} />
+                {
+                    isLoading ? <div className="flex w-full h-full items-center justify-center"><Spinner /></div>
+                        : <ChatList setActveChat={setActiveChat} activeChat={activeChat} chats={chats} />
+                }
+                <div className="flex justify-center items-center gap-2.5 cursor-pointer
+                                mt-auto p-4 border-t border-element-border-light">
+                    <Write />
+                    <span className="text-secondary-light-text text-sm">New Message</span>
+                </div>
             </div>
 
             <div className="flex flex-col w-full">
                 <div className="flex my-6 mx-8">
 
                 </div>
-
                 {
                     activeChat ?
-                        <div className="flex flex-col mx-8 h-full overflow-y-auto scrollbar" >
+                        <div className="flex flex-col mx-8 h-full overflow-y-auto scrollbar" onScroll={handleScrollToTop} >
                             <MessageList messages={messages} />
-                            <div ref={scrollRef}></div>
+                            <div ref={autoScrollRef}></div>
                         </div>
                         :
-                        <div className=" flex flex-col h-full items-center justify-center">
+                        <div className="flex flex-col h-full items-center justify-center">
                             <Inbox />
                             <span className="font-medium text-sm mt-4">Your messages</span>
                             <span className="text-sm text-nav-light mt-2">Select a person to display their chat or start a new conversation.</span>
@@ -41,7 +53,6 @@ const DirectWidget = () => {
                             </button>
                         </div>
                 }
-
                 {
                     activeChat ? <SendMessage send={send} /> : <></>
                 }

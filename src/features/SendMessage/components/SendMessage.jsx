@@ -13,12 +13,10 @@ const SendMessage = ({send}) => {
 
     const handleSend = async () => {
         const element = document.querySelector('.selected-chat');
-        const receiverId = element.dataset.receiverid;
-        const chatId = element.dataset.id;
 
         const newMessage = {
-            receiverId: receiverId,
-            chatId: chatId,
+            receiverId: element.dataset.receiverid,
+            chatId: element.dataset.id,
             content: content
         }
 

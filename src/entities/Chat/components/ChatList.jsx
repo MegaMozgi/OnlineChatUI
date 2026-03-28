@@ -1,10 +1,6 @@
-import { useState } from "react";
-import { useChats } from "../hooks/useChats";
 import ChatItem from "./ChatItem";
 
-const ChatList = ({ activeChat, setActveChat }) => {
-    const { chats, isLoading } = useChats();
-
+const ChatList = ({ activeChat, setActveChat, chats }) => {
     return (
         <div className="pt-8 border-t border-element-border-light">
             {

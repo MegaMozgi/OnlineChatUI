@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getChats } from "../services/getChats";
+import { getChats } from "../../../entities/Chat/services/getChats";
 
 export const useChats = () => {
     const [chats, setChats] = useState([]);

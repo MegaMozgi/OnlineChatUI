@@ -1,15 +1,27 @@
 import { useEffect, useRef } from "react";
 
-const useScroll = (messages) => {
-    const scrollRef = useRef(null);
+export const useAutoScroll = (messages) => {
+    const autoScrollRef = useRef(null);
 
     useEffect(() => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollIntoView();
+        if (autoScrollRef.current) {
+            autoScrollRef.current.scrollIntoView();
         }
     }, [messages])
 
-    return scrollRef;
+    return autoScrollRef;
 }
 
-export default useScroll;
+export const useScrollTop = (messages) => {
+    const chatScrollTopRef = useRef(null);
+
+    useEffect(() => {
+        let chatElement = chatScrollTopRef.current;
+
+        if (chatElement.scrollTop === 0) {
+            alert("This is top !!!");
+        }
+    }, [messages])
+
+    return chatScrollTopRef;
+}
