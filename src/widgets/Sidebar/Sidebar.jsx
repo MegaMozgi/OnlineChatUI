@@ -24,7 +24,7 @@ const Sidebar = () => {
                         <NavLink
                             key={item.path}
                             to={item.path}
-                            className="text-nav-light flex justify-items-start gap-2.5 items-center py-3">
+                            className="text-nav-light flex justify-items-start gap-2.5 items-center py-3 border-b border-element-border-light">
                                 <span>{item.icon}</span>
                                 <span className='font-medium text-sm'>{item.name}</span>
                         </NavLink>
