@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useMessage } from "./hooks/useMessage";
 import { useChats } from "./hooks/useChats";
-import { useAutoScroll } from "../../shared/hooks/useScroll";
-import { handleScrollToTop } from "../../shared/utils/Direct/scrollToTopHandler";
+// import { useAutoScroll } from "../../shared/hooks/useScroll";
 import ChatList from "../../entities/Chat/components/ChatList";
 import MessageList from "../../entities/Message/components/MessageList";
 import SendMessage from "../../features/SendMessage/components/SendMessage";
@@ -13,8 +12,8 @@ import Spinner from "../../assets/Spinner"
 const DirectWidget = () => {
     const [activeChat, setActiveChat] = useState();
     const { chats, isLoading } = useChats();
-    const { messages, send } = useMessage(activeChat);
-    const autoScrollRef = useAutoScroll(messages);
+    const { messages, send, fetchData } = useMessage(activeChat);
+    // const autoScrollRef = useAutoScroll(messages);
 
     return (
         <div className="flex mt-12 mr-23 bg-header-light rounded-lg border border-element-border-light h-145">
@@ -39,10 +38,7 @@ const DirectWidget = () => {
                 </div>
                 {
                     activeChat ?
-                        <div className="flex flex-col mx-8 h-full overflow-y-auto scrollbar" onScroll={handleScrollToTop} >
-                            <MessageList messages={messages} />
-                            <div ref={autoScrollRef}></div>
-                        </div>
+                        <MessageList messages={messages} fetchData={fetchData}/>
                         :
                         <div className="flex flex-col h-full items-center justify-center">
                             <Inbox />
